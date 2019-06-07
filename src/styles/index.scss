@@ -1,0 +1,264 @@
+$robotoFont: 'Roboto',
+sans-serif;
+$red: #B03060;
+$blue: #0E6EB8;
+$grey: #A0A0A0;
+$black: #000000;
+$white: #ffffff;
+
+*,
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: $robotoFont;
+  color: $black;
+}
+
+button {
+  padding: 5px 10px;
+  background: $blue;
+  color: $white;
+  border: 1px solid $blue;
+  transition: .3s;
+  outline: none;
+  cursor: pointer;
+
+  &:hover {
+    background: $white;
+    color: $blue;
+  }
+
+  &.redButton {
+    background: $red;
+    border-color: $red;
+
+    &:hover {
+      background: $white;
+      color: $red;
+    }
+  }
+
+}
+
+#root {
+  position: relative;
+}
+
+.booksList {
+  width: 90%;
+  height: calc(100vh - 70px);
+  margin: 25px auto;
+  padding: 25px;
+
+  border: 1px solid $black;
+  box-shadow: 2px -2px 5px $grey;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  h2 {
+    width: 100%;
+    text-align: center
+  }
+
+  ._list {
+    width: 100%;
+    height: 70vh;
+    margin-top: 15px;
+    overflow-y: auto;
+  }
+
+  .filterByName {
+    padding: 5px 10px;
+    width: 400px;
+    border: 1px solid $blue;
+  }
+
+  &-item {
+    width: 100%;
+    border: 1px solid $blue;
+    margin: 10px 0;
+    padding: 10px;
+
+    &Name {
+      font-weight: bold;
+      font-size: 18px
+    }
+
+    &Category,
+    &Authors,
+    &Publisher {
+      margin-top: 5px;
+
+      span {
+        color: $blue;
+      }
+    }
+
+    &Publisher {
+
+      &-viewDetails {
+        margin-left: 40px;
+        color: $red;
+        display: inline;
+        position: relative;
+
+        &-popOver {
+          position: absolute;
+          width: 200px;
+          display: none;
+          padding: 5px;
+          top: -20px;
+          left: 0;
+          border: 1px solid $red;
+          background: $white;
+        }
+      }
+
+      &-viewDetails:hover &-viewDetails-popOver {
+        display: block;
+      }
+
+    }
+
+    &Photo {
+      margin-top: 15px;
+      color: $red;
+      width: fit-content;
+    }
+
+    &Buttons {
+      width: fit-content;
+    }
+  }
+}
+
+.gallery {
+  position: absolute;
+  left: 0;
+  top: -25px;
+  width: 100vw;
+  height: 100vh;
+  background: #000000aa;
+
+  &-closeGallery {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid $red;
+    border-radius: 50%;
+    background: $red;
+    color: $white;
+    font-size: 20px;
+    line-height: 27px;
+    padding: 0px 7px;
+    transition: .3s;
+
+    &:hover {
+      color: $red;
+      background: $white;
+    }
+  }
+
+  &-inner {
+    width: 70%;
+    margin: 50px auto;
+    position: relative;
+
+    img {
+      width: 100%;
+    }
+
+    &-control {
+      position: absolute;
+      top: 40%;
+      width: 40px;
+      height: 40px;
+      border: 1px solid $red;
+      background: $red;
+      color: $white;
+      border-radius: 50%;
+      font-size: 30px;
+      line-height: 35px;
+      padding: 0 10px;
+      transition: .3s;
+
+      &:hover {
+        background: $white;
+        color: $red;
+      }
+    }
+
+    &-control.prev {
+      left: 10px;
+    }
+
+    &-control.next {
+      right: 10px;
+    }
+  }
+}
+
+.bookForm {
+  width: 90%;
+  height: calc(100vh - 70px);
+  margin: 25px auto;
+  padding: 25px;
+
+  border: 1px solid $black;
+  box-shadow: 2px -2px 5px $grey;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  &-backToList {
+    font-size: 14px;
+    color: $blue;
+    text-decoration: underline;
+    transition: .3s;
+
+    &:hover {
+      color: $red;
+    }
+  }
+
+
+  h2 {
+    width: 100%;
+    text-align: center
+  }
+
+  &-form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 70vh;
+
+    input {
+      padding: 5px 10px;
+      color: $black;
+      border: 1px solid $blue;
+      width: 80%;
+      margin-bottom: 15px;
+    }
+
+    button {
+      margin-bottom: 15px;
+    }
+
+    &-authorsList,
+    &-photoList {
+      width: 100%;
+    }
+  }
+}
